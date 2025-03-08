@@ -10,15 +10,15 @@ from . import views
 class ProjectsRouter(routers.DefaultRouter):
     def __init__(self, *args, **kwargs):
         super().__init__()
-        self.register(r'', views.BlogViewSet, basename='projects')
+        self.register(r'', views.ProjectViewSet, basename='projects')
 
     
 
     def get_urls(self):
         custom_urls = [
             path('', include([
-                path('', views.BlogViewSet.as_view({'get': 'list'})),
-                path('<slug:slug>/', views.BlogViewSet.as_view({'get': 'retrieve'})),
+                path('', views.ProjectViewSet.as_view({'get': 'list'})),
+                path('<slug:slug>/', views.ProjectViewSet.as_view({'get': 'retrieve'})),
             ]))
         ]
 
