@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     # Custom-Apps
     'Projects.apps.ProjectsConfig',
     'Blogs.apps.BlogsConfig',
+    'Contacts.apps.ContactsConfig',
 ]
 
 MIDDLEWARE = [
