@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'Projects.apps.ProjectsConfig',
     'Blogs.apps.BlogsConfig',
     'Contacts.apps.ContactsConfig',
+    'Skills.apps.SkillsConfig',
 ]
 
 MIDDLEWARE = [
