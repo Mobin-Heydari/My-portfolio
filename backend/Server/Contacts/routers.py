@@ -18,6 +18,7 @@ class ContactRouter(routers.DefaultRouter):
         custom_urls = [
             path('', include([
                 path('', views.ContactViewSet.as_view({'get': 'list'})),
+                path('', views.ContactViewSet.as_view({'post': 'create'})),
                 path('<int:pk>/', views.ContactViewSet.as_view({'get': 'retrieve'})),
             ]))
         ]
