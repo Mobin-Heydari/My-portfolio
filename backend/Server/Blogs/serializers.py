@@ -26,6 +26,21 @@ class BlogCommentSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+    def create(self, validated_data):
+        context = self.context
+
+        blog = context['blog']
+
+        instance = BlogComment.objects.create(
+            blog = blog,
+            content = validated_data['content'],
+        )
+
+        instance.save()
+        
+        return instance
+
+
 class BlogSerializer(serializers.ModelSerializer):
     category = BlogCategorySerializer(read_only=True)
     blog_content = BlogContentSerializer(many=True, read_only=True)
