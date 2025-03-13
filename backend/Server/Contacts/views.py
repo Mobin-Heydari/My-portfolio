@@ -29,3 +29,8 @@ class ContactViewSet(ViewSet):
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
+    def destroy(self, request, pk):
+        instance = get_object_or_404(Contact, id=pk)
+        instance.delete()
+        return Response({'Massage': 'Contact Deleted.'}, status=status.HTTP_204_NO_CONTENT)
+    
