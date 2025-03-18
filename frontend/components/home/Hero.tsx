@@ -4,7 +4,7 @@ import React from 'react'
 import { Spotlight } from '../ui/Spotlight'
 import { motion } from "motion/react";
 import { HeroHighlight, Highlight } from "../ui/Hero-Highlight";
-import MagicBotton from '../ui/MagicBotton';
+import MagicButton from '../ui/MagicButton';
 import { FaLocationArrow } from 'react-icons/fa';
 
 
@@ -38,7 +38,7 @@ const Hero = () => {
                     </div>
                 </motion.h2>
                 <a href="#about">
-                    <MagicBotton 
+                    <MagicButton 
                         title='Read more' 
                         icon={<FaLocationArrow />}
                         position='right'
