@@ -5,7 +5,7 @@ from rest_framework.viewsets import ViewSet
 from rest_framework import status
 
 from .models import Skill, Category
-from .serializers import SkillsSerializers, CategorySerializer
+from .serializers import SkillSerializers, CategorySerializer
 
 
 
@@ -25,10 +25,10 @@ class CategoryViewSet(ViewSet):
 class SkillsViewSet(ViewSet):
     def list(self, request):
         queryset = Skill.objects.all()
-        serializer = SkillsSerializers(queryset, many=True)
+        serializer = SkillSerializers(queryset, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
     
     def retrieve(self, request, pk):
         instance = get_object_or_404(Skill, id=pk)
-        serializer = SkillsSerializers(instance)
+        serializer = SkillSerializers(instance)
         return Response(serializer.data, status=status.HTTP_200_OK)

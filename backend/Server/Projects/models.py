@@ -40,7 +40,7 @@ class Project(models.Model):
         return self.title
     
 
-class ProjectDetail(models.CharField):
+class ProjectDetail(models.Model): 
     project = models.ForeignKey(Project, on_delete=models.CASCADE, related_name="Project_Detail")
 
     title = models.CharField(max_length=255, blank=True, null=True)
@@ -48,16 +48,15 @@ class ProjectDetail(models.CharField):
     content = models.TextField(null=True, blank=True)
 
     image = models.ImageField(upload_to="projects/details/images/", null=True, blank=True)
-    video = models.FileField(upload_to="projects/details/videos/", null=True, blank=True)
 
+    video = models.FileField(upload_to="projects/details/videos/", null=True, blank=True)
+    
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
-
 
     class Meta:
         verbose_name = "Project Detail"
         verbose_name_plural = "Projects Details"
 
-    
     def __str__(self):
         return f'{self.project.title}'
