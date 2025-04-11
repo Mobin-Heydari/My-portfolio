@@ -1,3 +1,6 @@
+import { skills } from "./Skill";
+
+
 export interface projects {
 
   id: number;
@@ -5,9 +8,10 @@ export interface projects {
   slug: string;
   description: string;
 
-  image_url: string;
-  banner_url: string;
-  video_url: string;
+  image: string;
+  banner: string;
+  video: string;
+
   github: string;
   main_url: string;
 
@@ -18,4 +22,6 @@ export interface projects {
   published_date: Date;
   updated_at: Date;
   created_at: Date;
+
+  skills: skills;
 }
