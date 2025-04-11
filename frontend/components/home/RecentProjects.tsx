@@ -2,7 +2,6 @@
 
 import React, { useEffect, useState } from "react";
 import { projects } from "@/types/Project";
-import { Lamp } from "../ui/Lamp";
 import { PinContainer } from "../ui/Pin";
 import { FaLocationArrow } from "react-icons/fa";
 

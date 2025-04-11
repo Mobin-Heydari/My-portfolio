@@ -1,7 +1,7 @@
 "use client";
 
 import React from 'react'
-import { FloatingNav } from './ui/FloatindNav'
+import { FloatingNav } from './ui/FloatingNavbar';
 import { FaBook, FaHome, FaPhoneAlt, FaProjectDiagram } from 'react-icons/fa';
 
 

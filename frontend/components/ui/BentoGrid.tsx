@@ -1,18 +1,20 @@
 "use client";
 
 import { useState } from "react";
+import dynamic from "next/dynamic";
 import { IoCopyOutline } from "react-icons/io5";
 
-// Also install this npm i --save-dev @types/react-lottie
-import Lottie from "react-lottie";
+// Dynamically import react-lottie and disable SSR
+const LottieDynamic = dynamic(() => import("react-lottie"), { ssr: false });
 
+// ...other imports
 import { cn } from "@/lib/utils";
-
-
 import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
+
+
 
 export const BentoGrid = ({
   className,
@@ -168,11 +170,8 @@ export const BentoGridItem = ({
           )}
           {id === 6 && (
             <div className="mt-5 relative">
-              <div
-                className={`absolute -bottom-5 right-0 ${copied ? "block" : "block"
-                  }`}
-              >
-                <Lottie options={defaultOptions} height={200} width={400} />
+              <div className={`absolute -bottom-5 right-0`}>
+                <LottieDynamic options={defaultOptions} height={200} width={400} />
               </div>
 
               <MagicButton
@@ -184,6 +183,7 @@ export const BentoGridItem = ({
               />
             </div>
           )}
+
         </div>
       </div>
     </div>

@@ -1,7 +1,6 @@
 "use client";
 
 import React from 'react'
-import { Spotlight } from '../ui/Spotlight'
 import { motion } from "motion/react";
 import { HeroHighlight, Highlight } from "../ui/Hero-Highlight";
 import MagicButton from '../ui/MagicButton';
