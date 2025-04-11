@@ -23,5 +23,5 @@ export interface projects {
   updated_at: Date;
   created_at: Date;
 
-  skills: skills;
+  skills: skills[];
 }
