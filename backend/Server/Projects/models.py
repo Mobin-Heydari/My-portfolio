@@ -2,6 +2,17 @@ from django.db import models
 
 
 
+class Skill(models.Model):
+    icon = models.FileField(upload_to="projects/skills/icons/")
+    name = models.CharField(max_length=255, unique=True)
+
+    class Meta:
+        verbose_name = "Skill"
+        verbose_name = "Skills"
+    
+    def __str__(self):
+        return self.name
+
 
 class Project(models.Model):
 
@@ -16,6 +27,8 @@ class Project(models.Model):
     slug = models.SlugField(max_length=255, unique=True)
 
     description = models.TextField(max_length=300, null=True, blank=True)
+
+    skills = models.ManyToManyField(Skill, blank=True)
 
     image = models.ImageField(upload_to='projects/images/', null=True)
     banner = models.ImageField(upload_to='projects/banners/', null=True)

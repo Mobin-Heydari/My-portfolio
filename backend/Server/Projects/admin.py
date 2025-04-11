@@ -1,5 +1,8 @@
 from django.contrib import admin
-from .models import Project, ProjectDetail
+from .models import Project, ProjectDetail, Skill
+
+admin.site.register(Skill)
+
 
 
 class ProjectDetailInline(admin.TabularInline):  # You can also use admin.StackedInline
@@ -13,4 +16,5 @@ class ProjectAdmin(admin.ModelAdmin):
     list_filter = ('project_status', 'is_published')
     search_fields = ('title', 'description', 'slug')
     prepopulated_fields = {'slug': ('title',)}
+    filter_horizontal = ['skills']
     inlines = [ProjectDetailInline]
