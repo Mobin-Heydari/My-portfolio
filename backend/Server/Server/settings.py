@@ -33,6 +33,7 @@ INSTALLED_APPS = [
 
     # Third-Parties 
     'rest_framework',
+    'corsheaders',
 
     # Custom-Apps
     'Projects.apps.ProjectsConfig',
@@ -49,6 +50,9 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
 
 ROOT_URLCONF = 'Server.urls'
@@ -173,3 +177,9 @@ JAZZMIN_SETTINGS = {
     "custom_css": "css/admin.css",
     "custom_js": "js/admin.js",
 }
+
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',  # Example: Your frontend's URL
+]
+
+CORS_ALLOW_ALL_ORIGINS = True
