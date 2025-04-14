@@ -1,4 +1,5 @@
 import AboutSection from '@/components/home/AboutSection'
+import Clients from '@/components/home/ClientsSection'
 import Hero from '@/components/home/Hero'
 import { RecentProjects } from '@/components/home/RecentProjects'
 import Navbar from '@/components/Navbar'
@@ -15,6 +16,7 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <RecentProjects />
+        <Clients />
       </div>
     </main>
   )
