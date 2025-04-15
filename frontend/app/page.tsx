@@ -1,3 +1,4 @@
+import Footer from '@/components/Footer'
 import AboutSection from '@/components/home/AboutSection'
 import Clients from '@/components/home/ClientsSection'
 import Hero from '@/components/home/Hero'
@@ -17,6 +18,7 @@ export default function Home() {
         <AboutSection />
         <RecentProjects />
         <Clients />
+        <Footer />
       </div>
     </main>
   )
