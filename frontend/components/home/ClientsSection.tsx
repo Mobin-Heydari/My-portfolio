@@ -44,7 +44,7 @@ const clients = () => {
           Kind words from
           <span className="text-Primary"> satiscfied clients</span>
         </h3>
-        <div className="flex flex-col items-center mt-20">
+        <div className="flex flex-col items-center mt-20 mb-32">
             <InfiniteMovingCards 
               items={clientsData}
               direction="right"
