@@ -37,7 +37,7 @@ class Project(models.Model):
     project_status = models.CharField(max_length=12, choices=ProjectStatus.choices, default=ProjectStatus.IN_PROGRESS)
 
     is_published = models.BooleanField(default=False)
-    published_date = models.DateField(null=True)
+    published_date = models.DateField(db_index=True)
 
     github = models.URLField(null=True, blank=True)
     main_url = models.URLField(null=True, blank=True)

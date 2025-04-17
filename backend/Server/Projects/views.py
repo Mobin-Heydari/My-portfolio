@@ -31,3 +31,8 @@ class ProjectViewSet(ViewSet):
         serializer = ProjectSerializer(query)
         # returning the serialized data
         return Response(serializer.data, status=status.HTTP_200_OK)
+
+    def recent_projects(self, request):
+        queryset = Project.objects.filter(is_published=True).order_by('published_date')[:6]
+        serializer = ProjectSerializer(queryset, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)

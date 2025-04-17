@@ -18,6 +18,7 @@ class ProjectsRouter(routers.DefaultRouter):
         custom_urls = [
             path('', include([
                 path('', views.ProjectViewSet.as_view({'get': 'list'})),
+                path('recent/', views.ProjectViewSet.as_view({'get': 'recent_projects'})),
                 path('<slug:slug>/', views.ProjectViewSet.as_view({'get': 'retrieve'})),
             ]))
         ]
