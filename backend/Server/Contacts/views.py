@@ -1,13 +1,10 @@
 from django.shortcuts import get_object_or_404
-
 from rest_framework.views import Response
 from rest_framework.viewsets import ViewSet
 from rest_framework import status
 
 from .serializers import ContactSerializer
 from .models import Contact
-
-
 
 class ContactViewSet(ViewSet):
 
@@ -25,12 +22,12 @@ class ContactViewSet(ViewSet):
         serializer = ContactSerializer(data=request.data)
         if serializer.is_valid():
             serializer.save()
-            return Response({'Massage': 'Contact created.'}, status=status.HTTP_201_CREATED)
+            # Note: Corrected "Massage" to "Message" in the responses.
+            return Response({'Message': 'Contact created.'}, status=status.HTTP_201_CREATED)
         else:
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     def destroy(self, request, pk):
         instance = get_object_or_404(Contact, id=pk)
         instance.delete()
-        return Response({'Massage': 'Contact Deleted.'}, status=status.HTTP_204_NO_CONTENT)
-    
+        return Response({'Message': 'Contact Deleted.'}, status=status.HTTP_204_NO_CONTENT)
