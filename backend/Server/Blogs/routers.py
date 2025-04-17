@@ -18,6 +18,7 @@ class BlogsRouter(routers.DefaultRouter):
         custom_urls = [
             path('', include([
                 path('', views.BlogViewSet.as_view({'get': 'list'})),
+                path('famus-blogs/', views.BlogViewSet.as_view({'get': 'list'})),
                 path('detail/<slug:slug>/', views.BlogViewSet.as_view({'get': 'retrieve'})),
             ]))
         ]
