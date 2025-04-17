@@ -1,6 +1,7 @@
 import { ContactForm } from '@/components/ContactForm'
 import Footer from '@/components/Footer'
 import AboutSection from '@/components/home/AboutSection'
+import NewBlogsSection from '@/components/home/NewBlogsSection'
 import Clients from '@/components/home/ClientsSection'
 import Hero from '@/components/home/Hero'
 import { RecentProjects } from '@/components/home/RecentProjects'
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <AboutSection />
         <RecentProjects />
+        <NewBlogsSection />
         <Clients />
         <ContactForm />
         <Footer />
