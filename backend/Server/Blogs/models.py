@@ -23,7 +23,6 @@ class Blog(models.Model):
     class BlogStatus(models.TextChoices):
         DRAFT = "DRF", "Draft"
         PUBLISHED = "PUB", "Published"
-    
 
     title = models.CharField(max_length=255)
     slug = models.SlugField(max_length=255, unique=True)
@@ -38,8 +37,10 @@ class Blog(models.Model):
 
     status = models.CharField(max_length=3, choices=BlogStatus.choices, default=BlogStatus.DRAFT)
 
-    image = models.ImageField(upload_to="Blogs/Blog/images/")
+    image = models.ImageField(upload_to="Blogs/images/")
+    banner = models.ImageField(upload_to="Blogs/banners", null=True)
 
+    published_date = models.DateField(null=True)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
