@@ -29,26 +29,12 @@ export const HoverEffectCards = ({
             whileHover={{ scale: 1.02 }}
             transition={{ duration: 0.2 }}
           >
-            <AnimatePresence>
-              {hoveredIndex === idx && (
-                <motion.span
-                  layoutId="hoverBackground"
-                  initial={{ opacity: 0 }}
-                  animate={{ opacity: 1, transition: { duration: 0.15 } }}
-                  exit={{
-                    opacity: 0,
-                    transition: { duration: 0.15, delay: 0.2 },
-                  }}
-                  className="absolute inset-0 h-full w-full bg-Primary block rounded-3xl z-0"
-                />
-              )}
-            </AnimatePresence>
             <Card>
               {item.image && (
                 <img
                   src={item.image}
                   alt={item.title}
-                  className="w-full h-48 object-cover rounded-t-lg bg-Base"
+                  className="w-full h-48 object-cover rounded-t-lg bg-base"
                 />
               )}
               <div className="p-4">
@@ -74,7 +60,7 @@ export const Card = ({
   return (
     <div
       className={cn(
-        "rounded-2xl overflow-hidden bg-black border border-transparent dark:border-white/[0.2] group-hover:border-Primary relative z-20 shadow-lg",
+        "rounded-2xl overflow-hidden bg-base-light dark:bg-base-dark border border-transparent dark:border-white/[0.2] group-hover:border-Primary relative z-20 shadow-lg",
         className
       )}
     >
