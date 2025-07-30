@@ -13,16 +13,14 @@ import Image from 'next/image'
 
 export default function Home() {
   return (
-    <main className='relative bg-Base flex justify-center items-center flex-col overflow-hidden mx-auto'>
+    <main className='relative flex justify-center items-center flex-col overflow-hidden mx-auto'>
       <div className='w-full'>
-        <Navbar />
         <Hero />
         <AboutSection />
         <RecentProjects />
         <NewBlogsSection />
         <Clients />
         <ContactForm />
-        <Footer />
       </div>
     </main>
   )
