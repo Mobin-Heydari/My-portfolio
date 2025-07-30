@@ -1,11 +1,12 @@
-"use client"
+'use client';
 
-import * as React from "react"
-import { ThemeProvider as NextThemesProvider } from "next-themes"
+import { ThemeProvider } from 'next-themes'
 
-export function ThemeProvider({
-  children,
-  ...props
-}: React.ComponentProps<typeof NextThemesProvider>) {
-  return <NextThemesProvider {...props}>{children}</NextThemesProvider>
+
+export default function Theme({ children }: {children : React.ReactNode}) {
+    return (
+        <ThemeProvider attribute="class" defaultTheme='system' enableSystem>
+            {children}
+        </ThemeProvider>
+    )
 }
