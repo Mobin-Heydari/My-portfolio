@@ -26,11 +26,11 @@ const Hero = () => {
                 duration: 0.5,
                 ease: [0.4, 0.0, 0.2, 1],
                 }}
-                className="w-full h-full text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-white max-w-4xl leading-relaxed lg:leading-snug text-center text-wrap"
+                className="w-full h-full text-2xl px-4 md:text-4xl lg:text-5xl font-bold text-main-text-light dark:text-main-text-dark max-w-4xl leading-relaxed lg:leading-snug text-center text-wrap"
             >
                 I transform ideas into impactful digital realities. With the perfect blend of front-end finesse and back-end strength, I craft scalable solutions that drive results.{" "}
                 <div>
-                    <span className='bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-Primary via-sky-300 to-blue-700 [text-shadow:0_0_rgba(0,0,0,0.1)]'>
+                    <span className='bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-primary-light via-main-text-light to-secondary-light dark:from-primary-dark dark:via-main-text-dark dark:to-secondary-dark [text-shadow:0_0_rgba(0,0,0,0.1)]'>
                         Let’s build something extraordinary together.
                     </span>
                 </div>
