@@ -5,6 +5,9 @@ import { Input } from "./ui/Input";
 import { Label } from "./ui/Label";
 import { FileUpload } from "./ui/FileUpload";
 import { cn } from "@/lib/utils";
+import { Textarea } from "./ui/Textarea";
+
+
 
 // Helper function to fetch the public IP address
 async function getPublicIP() {
@@ -22,7 +25,7 @@ export function ContactForm() {
   // State to track file attachments (for submission data)
   const [attachedFiles, setAttachedFiles] = useState<File[]>([]);
   // State for submission status
-  const [buttonMessage, setButtonMessage] = useState("Send");
+  const [buttonMessage, setButtonMessage] = useState("ارسال");
   const [isSubmitting, setIsSubmitting] = useState(false);
   // State for field-specific errors
   const [fieldErrors, setFieldErrors] = useState<{ [key: string]: string }>({});
@@ -38,7 +41,7 @@ export function ContactForm() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setButtonMessage("Sending...");
+    setButtonMessage("Sending......");
     setFieldErrors({}); // clear previous errors if any
 
     const form = e.currentTarget;
@@ -62,7 +65,7 @@ export function ContactForm() {
     if (Object.keys(errors).length > 0) {
       setFieldErrors(errors);
       setIsSubmitting(false);
-      setButtonMessage("Send");
+      setButtonMessage("ارسال");
       return;
     }
 
@@ -92,7 +95,7 @@ export function ContactForm() {
       });
 
       if (response.ok) {
-        setButtonMessage("Message Sent!");
+        setButtonMessage("Message has been sended!");
         form.reset();
 
         // Clear file selections and force FileUpload re-mount
@@ -101,31 +104,30 @@ export function ContactForm() {
 
         setFieldErrors({});
         setTimeout(() => {
-          setButtonMessage("Send");
+          setButtonMessage("ارسال");
           setIsSubmitting(false);
         }, 3000);
       } else {
         // Parse field-specific error messages from API response (if provided)
         const errorData = await response.json();
         setFieldErrors(errorData);
-        setButtonMessage("Send");
+        setButtonMessage("ارسال");
         setIsSubmitting(false);
       }
     } catch (error) {
-      console.error("Error during API request:", error);
-      setButtonMessage("Error. Try again.");
+      setButtonMessage("مشکلی به وجود آمد");
       setIsSubmitting(false);
       setTimeout(() => {
-        setButtonMessage("Send");
+        setButtonMessage("ارسال");
       }, 4000);
     }
   };
 
   return (
-    <div className="shadow-input mx-auto mb-20 w-full max-w-lg border border-white/[0.2] rounded-xl p-4 md:rounded-2xl md:p-8 bg-Secondary">
-      <h2 className="text-xl font-bold text-HighlightText">Contact me fast</h2>
-      <p className="mt-2 max-w-sm text-sm text-neutral-300">
-        You can send your phone number or email to me
+    <section className="shadow-input mx-auto mb-20 w-full max-w-lg border border-primary-light dark:border-primary-dark rounded-xl p-4 md:rounded-2xl md:p-8 bg-base-light/[0.5] dark:bg-base-dark/[0.5]">
+      <h2 className="text-xl font-bold text-main-text-light dark:text-main-text-dark text-center mb-4">Do you have an idea?</h2>
+      <p className="mt-2 max-w-sm text-sm text-main-text-light dark:text-main-text-dark mb-4">
+        You can share your requests and feedback with us by filling out the contact form.
       </p>
 
       <form className="my-8" onSubmit={handleSubmit}>
@@ -148,7 +150,7 @@ export function ContactForm() {
         </div>
         {/* Email */}
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="email">Email Address</Label>
+          <Label htmlFor="email">Email</Label>
           <Input id="email" name="email" placeholder="mobinheydari.developer@gmail.com" type="email" />
           {fieldErrors.email && (
             <p className="text-red-500 text-xs mt-1">{fieldErrors.email}</p>
@@ -156,35 +158,29 @@ export function ContactForm() {
         </LabelInputContainer>
         {/* Phone */}
         <LabelInputContainer className="mb-4">
-          <Label htmlFor="phone">Phone</Label>
+          <Label htmlFor="phone">Phone number</Label>
           <Input id="phone" name="phone" placeholder="0910-207-2859" type="tel" />
         </LabelInputContainer>
         {/* LinkedIn ID */}
         <LabelInputContainer className="mb-8">
-          <Label htmlFor="linkedin_id">Your LinkedIn ID</Label>
+          <Label htmlFor="linkedin_id">Your linkedIn ID</Label>
           <Input id="linkedin_id" name="linkedin_id" placeholder="Mobin-Heydari" type="text" />
         </LabelInputContainer>
         {/* Title */}
-        <LabelInputContainer className="mb-8">
+        <LabelInputContainer className="mb-4">
           <Label htmlFor="title">Title</Label>
-          <Input id="title" name="title" placeholder="Subject" type="text" />
-          {fieldErrors.title && (
-            <p className="text-red-500 text-xs mt-1">{fieldErrors.title}</p>
-          )}
+          <Input id="title" name="title" placeholder="title" type="textarea" />
         </LabelInputContainer>
         {/* Content */}
         <LabelInputContainer className="mb-8">
-          <Label htmlFor="content">Content</Label>
-          <Input id="content" name="content" placeholder="Your message" type="text" />
+          <Label htmlFor="content">Message</Label>
+          <Textarea id="content" name="content" placeholder="message...." />
         </LabelInputContainer>
         {/* File Upload */}
-        <LabelInputContainer className="mb-8">
-          <Label>Attachment</Label>
-          <FileUpload key={fileUploadKey} onChange={handleFileChange} />
-        </LabelInputContainer>
+        <FileUpload key={fileUploadKey} onChange={handleFileChange} />
         {/* Submit Button */}
         <button
-          className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br font-bold text-white shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] bg-slate-900 dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
+          className="group/btn relative block h-10 w-full rounded-md bg-gradient-to-br font-bold text-main-text-light dark:text-main-text-dark shadow-[0px_1px_0px_0px_#ffffff40_inset,0px_-1px_0px_0px_#ffffff40_inset] bg-primary-light/[0.4] dark:bg-primary-dark/[0.4] dark:shadow-[0px_1px_0px_0px_#27272a_inset,0px_-1px_0px_0px_#27272a_inset]"
           type="submit"
           disabled={isSubmitting}
         >
@@ -192,7 +188,7 @@ export function ContactForm() {
           <BottomGradient />
         </button>
       </form>
-    </div>
+    </section>
   );
 }
 
