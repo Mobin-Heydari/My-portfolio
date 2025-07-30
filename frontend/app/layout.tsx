@@ -19,6 +19,14 @@ export default async function RootLayout({
 }) {
   return (
     <html suppressHydrationWarning>
+      <head>
+        <link
+          rel="icon"
+          href="/icons/logo.png"
+          type="image/png"
+          sizes="32px"
+        />
+      </head>
       <body className="dark:bg-base-dark bg-base-light">
         <Theme>
           <Navbar />
