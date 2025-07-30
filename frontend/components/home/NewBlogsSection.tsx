@@ -33,17 +33,17 @@ function NewBlogsSection() {
   return (
     <BackgroundBeamsWithCollision className="mt-20 mb-22">
       <div className="flex justify-evenly items-center flex-col gap-12">
-        <h3 className="text-2xl relative z-20 md:text-4xl lg:text-7xl font-bold text-center text-black dark:text-white font-sans tracking-tight mt-12">
+        <h3 className="text-2xl relative z-20 md:text-4xl lg:text-7xl font-bold text-center font-sans tracking-tight mt-12">
           What&apos;s{" "}
-          <span className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-Primary via-sky-300 to-blue-700">
+          <span className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-primary-light -via-secondary-light to-hover-light dark:from-primary-dark dark:via-primary-dark dark:to-hover-dark">
             cooler
           </span>{" "}
           than reading{" "}
           <div className="relative mx-auto inline-block w-max [filter:drop-shadow(0px_1px_3px_rgba(27,_37,_80,_0.14))]">
-            <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-Primary via-sky-300 to-blue-700 [text-shadow:0_0_rgba(0,0,0,0.1)]">
+            <div className="absolute left-0 top-[1px] bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-primary-light via-secondary-light to-hover-light dark:from-primary-dark dark:via-primary-dark dark:to-hover-dark [text-shadow:0_0_rgba(0,0,0,0.1)]">
               <span>Tech blogs?</span>
             </div>
-            <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-Primary via-sky-300 to-blue-700 py-4">
+            <div className="relative bg-clip-text text-transparent bg-no-repeat bg-gradient-to-r from-primary-light via-secondary-light to-hover-light dark:from-primary-dark dark:via-primary-dark dark:to-hover-dark py-4">
               <span>Tech blogs?</span>
             </div>
           </div>
