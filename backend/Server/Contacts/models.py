@@ -62,4 +62,4 @@ class Contact(models.Model):
         ordering = ['-created_at']  # Most recent contacts first
 
     def __str__(self):
-        return f"{self.title} - {self.name}"
+        return f"{self.title}"
