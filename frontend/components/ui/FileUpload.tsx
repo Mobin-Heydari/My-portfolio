@@ -6,6 +6,8 @@ import { motion } from "motion/react";
 import { IconUpload, IconX } from "@tabler/icons-react";
 import { useDropzone } from "react-dropzone";
 
+
+
 const mainVariant = {
   initial: {
     x: 0,
@@ -66,7 +68,7 @@ export const FileUpload = ({
   };
 
   return (
-    <div className="w-full" {...getRootProps()}>
+    <div className="w-full mb-8" {...getRootProps()}>
       <motion.div
         onClick={handleClick}
         whileHover="animate"
@@ -88,11 +90,11 @@ export const FileUpload = ({
           {/* When no file has been selected, show the animated prompt */}
           {!file && (
             <>
-              <p className="relative z-20 font-sans font-bold text-neutral-700 dark:text-neutral-300 text-base">
-                Upload Attachment
+              <p className="relative z-20 font-sans font-bold text-main-text-light dark:text-main-text-dark text-base">
+                Upload File
               </p>
-              <p className="relative z-20 font-sans font-normal text-neutral-400 dark:text-neutral-400 text-base mt-2">
-                Drag or drop your file here or click to upload
+              <p className="relative z-20 font-sans font-normal text-main-text-light dark:text-main-text-dark text-base mt-2">
+                Drag your file here or click to upload.
               </p>
               <div className="relative w-full mt-10 max-w-xl mx-auto">
                 <motion.div
@@ -104,7 +106,7 @@ export const FileUpload = ({
                     damping: 20,
                   }}
                   className={cn(
-                    "relative group-hover/file:shadow-2xl z-40 bg-white dark:bg-neutral-900 flex items-center justify-center h-32 mt-4 w-full max-w-[8rem] mx-auto rounded-md",
+                    "relative group-hover/file:shadow-2xl z-40 bg-primary-light/[0.7] dark:bg-primary-dark/[0.7] flex items-center justify-center h-32 mt-4 w-full max-w-[8rem] mx-auto rounded-md",
                     "shadow-[0px_10px_50px_rgba(0,0,0,0.1)]"
                   )}
                 >
@@ -115,10 +117,10 @@ export const FileUpload = ({
                       className="text-neutral-600 flex flex-col items-center"
                     >
                       Drop it
-                      <IconUpload className="h-4 w-4 text-neutral-600 dark:text-neutral-400" />
+                      <IconUpload className="h-4 w-4 text-main-text-light dark:text-main-text-dark" />
                     </motion.p>
                   ) : (
-                    <IconUpload className="h-4 w-4 text-neutral-600 dark:text-neutral-300" />
+                    <IconUpload className="h-4 w-4 text-main-text-light dark:text-main-text-dark" />
                   )}
                 </motion.div>
                 <motion.div
@@ -142,7 +144,7 @@ export const FileUpload = ({
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
                   layout
-                  className="text-base text-neutral-700 dark:text-neutral-300 truncate max-w-xs"
+                  className="text-base text-main-text-light dark:text-main-text-dark truncate max-w-xs"
                 >
                   {file.name}
                 </motion.p>
@@ -154,7 +156,7 @@ export const FileUpload = ({
                   <IconX size={20} />
                 </button>
               </div>
-              <div className="flex text-sm md:flex-row flex-col items-start md:items-center w-full mt-2 justify-between text-neutral-600 dark:text-neutral-400">
+              <div className="flex text-sm md:flex-row flex-col items-start md:items-center w-full mt-2 justify-between text-main-text-light dark:text-main-text-dark">
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -171,7 +173,7 @@ export const FileUpload = ({
                   {(file.size / (1024 * 1024)).toFixed(2)} MB
                 </motion.p>
               </div>
-              <div className="flex text-sm items-center w-full mt-2 justify-between text-neutral-600 dark:text-neutral-400">
+              <div className="flex text-sm items-center w-full mt-2 justify-between text-main-text-light dark:text-main-text-dark">
                 <motion.p
                   initial={{ opacity: 0 }}
                   animate={{ opacity: 1 }}
@@ -201,8 +203,8 @@ export function GridPattern() {
               key={`${col}-${row}`}
               className={`w-10 h-10 flex shrink-0 rounded-[2px] ${
                 index % 2 === 0
-                  ? "bg-neutral-950"
-                  : "bg-neutral-950 shadow-[0px_0px_1px_3px_rgba(255,255,255,1)_inset] dark:shadow-[0px_0px_1px_3px_rgba(0,0,0,1)_inset]"
+                  ? "bg-primary-light/[0.7] dark:bg-secondary-dark/[0.7]"
+                  : "bg-primary-light/[0.7] dark:bg-secondary-dark/[0.7] shadow-primary-dark dark:shadow-primary-light"
               }`}
             />
           );
