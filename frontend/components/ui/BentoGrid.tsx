@@ -13,6 +13,8 @@ import { BackgroundGradientAnimation } from "./GradientBg";
 import GridGlobe from "./GridGlobe";
 import animationData from "@/data/confetti.json";
 import MagicButton from "./MagicButton";
+import { useMounted } from "@/hooks/useMounted";
+import { useTheme } from "next-themes";
 
 
 
@@ -55,8 +57,10 @@ export const BentoGridItem = ({
   titleClassName?: string;
   spareImg?: string;
 }) => {
-  const leftLists = ["ReactJS", "NextJs", "Typescript"];
-  const rightLists = ["Django", "Python", "GraphQL"];
+  const leftLists = ["React", "Next Js", "Typescript"];
+  const rightLists = ["Django", "Python", "Rest Api"];
+  const mounted = useMounted();
+  const { resolvedTheme } = useTheme();
 
   const [copied, setCopied] = useState(false);
 
@@ -74,6 +78,13 @@ export const BentoGridItem = ({
     navigator.clipboard.writeText(text);
     setCopied(true);
   };
+
+   // ─── Prevent render until client+theme ready ──────────────────────────────
+  if (!mounted) {
+    return null;
+  }
+
+  const backgroundColor = resolvedTheme === "dark" ? "#031525" : "#EAF1F0";
   
   return (
     <div
@@ -82,18 +93,17 @@ export const BentoGridItem = ({
         //   add these two
         //   you can generate the color from here https://cssgradient.io/
         background: "rgb(4,7,29)",
-        backgroundColor:
-          "linear-gradient(90deg, rgba(4,7,29,1) 0%, rgba(12,14,35,1) 100%)",
+        backgroundColor: backgroundColor,
       }}
     >
       {/* add img divs */}
-      <div className={`${id === 6 && "flex justify-center"} h-full`}>
+      <div className={`${id === 6 && "flex justify-center"} h-full text-primary-light dark:text-primary-dark`}>
         <div className="w-full h-full absolute">
           {img && (
             <img
               src={img}
               alt={img}
-              className={cn(imgClassName, "object-cover object-center ")}
+              className={cn(imgClassName, "object-cover object-center")}
             />
           )}
         </div>
@@ -113,7 +123,7 @@ export const BentoGridItem = ({
         {id === 6 && (
           // add background animation , remove the p tag
           <BackgroundGradientAnimation>
-            <div className="absolute z-50 inset-0 flex items-center justify-center text-white font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
+            <div className="absolute z-50 inset-0 flex items-center justify-center font-bold px-4 pointer-events-none text-3xl text-center md:text-4xl lg:text-7xl"></div>
           </BackgroundGradientAnimation>
         )}
 
@@ -124,7 +134,7 @@ export const BentoGridItem = ({
           )}
         >
           {/* change the order of the title and des, font-extralight, remove text-xs text-neutral-600 dark:text-neutral-300 , change the text-color */}
-          <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm text-[#C1C2D3] z-10">
+          <div className="font-sans font-extralight md:max-w-32 md:text-xs lg:text-base text-sm z-10">
             {description}
           </div>
           {/* add text-3xl max-w-96 , remove text-neutral-600 dark:text-neutral-300*/}
@@ -147,20 +157,20 @@ export const BentoGridItem = ({
                   <span
                     key={i}
                     className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    lg:opacity-100 rounded-lg text-center bg-primary-light dark:bg-primary-dark text-main-text-light dark:text-main-text-dark hover:bg-hover-dark dark:hover:bg-hover-light hover:text-main-text-dark dark:hover:text-main-text-light cursor-pointer"
                   >
                     {item}
                   </span>
                 ))}
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center"></span>
               </div>
               <div className="flex flex-col gap-3 md:gap-3 lg:gap-8">
-                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center bg-[#10132E]"></span>
+                <span className="lg:py-4 lg:px-3 py-4 px-3  rounded-lg text-center"></span>
                 {rightLists.map((item, i) => (
                   <span
                     key={i}
                     className="lg:py-4 lg:px-3 py-2 px-3 text-xs lg:text-base opacity-50 
-                    lg:opacity-100 rounded-lg text-center bg-[#10132E]"
+                    lg:opacity-100 rounded-lg text-center bg-primary-light dark:bg-primary-dark text-main-text-light dark:text-main-text-dark hover:bg-hover-dark dark:hover:bg-hover-light hover:text-main-text-dark dark:hover:text-main-text-light cursor-pointer"
                   >
                     {item}
                   </span>
