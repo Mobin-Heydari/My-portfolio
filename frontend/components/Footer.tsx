@@ -6,17 +6,17 @@ import { FaGithub, FaGitlab, FaLinkedin, FaLocationArrow } from "react-icons/fa"
 const socialMedia = [
   {
     id: 1,
-    icon: <FaGithub />,
+    icon: <FaGithub className="text-main-text-light hover:text-hover-light dark:text-main-text-dark dark:hover:text-hover-dark"/>,
     url: "https://github.com/Mobin-Heydari"
   },
   {
     id: 2,
-    icon: <FaGitlab />,
+    icon: <FaGitlab className="text-main-text-light hover:text-hover-light dark:text-main-text-dark dark:hover:text-hover-dark"/>,
     url: "https://gitlab.com/Mobin_Developer"
   },
   {
     id: 3,
-    icon: <FaLinkedin />,
+    icon: <FaLinkedin className="text-main-text-light hover:text-hover-light dark:text-main-text-dark dark:hover:text-hover-dark"/>,
     url: "https://www.linkedin.com/in/mobin--heydari/"
   },
 ];
@@ -24,7 +24,7 @@ const socialMedia = [
 export function Footer() {
   return (
     <footer className="w-[calc(100%-4rem)] mx-auto rounded-md h-[30rem] overflow-hidden mt-20">
-      <Vortex backgroundColor="#222831" className="flex flex-col items-center justify-center px-2 md:px-10 py-4 w-full h-full">
+      <Vortex className="flex flex-col items-center justify-center px-2 md:px-10 py-4 w-full h-full" particleCount={120}>
         <div className="w-full absolute left-0 -bottom-72 min-h-96 ">
           <img src="/footer-grid.svg" alt="footer grid" className="w-full h-full opacity-10"/>
         </div>
@@ -32,7 +32,7 @@ export function Footer() {
           <h4 className="text-2xl w-full text-center">
             Ready to take your digital presence to the next level? Let’s start this journey together.
           </h4>
-          <p className="text-center md:mt-10 my-5 text-2xl bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-Primary via-sky-300 to-blue-700 [text-shadow:0_0_rgba(0,0,0,0.1)] font-bold">
+          <p className="text-center md:mt-10 my-5 text-2xl bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-primary-light via-main-text-light to-secondary-light dark:from-primary-dark dark:via-main-text-dark dark:to-secondary-dark  [text-shadow:0_0_rgba(0,0,0,0.1)] font-bold">
             Click the button below, and let’s get in touch!
           </p>
           <a href="mailto:mobinheydari.developer@gmail.com">
