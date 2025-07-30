@@ -73,14 +73,14 @@ export const InfiniteMovingCards = ({
     <div
       ref={containerRef}
       className={cn(
-        "scroller relative z-20 w-screen overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)]",
+        "scroller relative z-20 w-screen overflow-hidden [mask-image:linear-gradient(to_right,transparent,white_20%,white_80%,transparent)] dark:bg-base-dark bg-base-light",
         className,
       )}
     >
       <ul
         ref={scrollerRef}
         className={cn(
-          "flex w-max min-w-full shrink-0 flex-nowrap gap-16 py-4",
+          "flex w-max min-w-full shrink-0 flex-nowrap gap-16 py-4 dark:bg-base-dark bg-base-light",
           start && "animate-scroll",
           pauseOnHover && "hover:[animation-play-state:paused]",
         )}
@@ -100,17 +100,17 @@ export const InfiniteMovingCards = ({
             <blockquote>
               <div
                 aria-hidden="true"
-                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)]"
+                className="user-select-none pointer-events-none absolute -top-0.5 -left-0.5 -z-1 h-[calc(100%_+_4px)] w-[calc(100%_+_4px)] dark:bg-base-dark bg-base-light"
               ></div>
-              <span className="relative z-20 text-sm md:text-lg leading-[1.6] font-normal text-white">
+              <span className="relative z-20 text-sm md:text-lg leading-[1.6] font-normal text-main-text-light dark:text-main-text-dark">
                 {item.quote}
               </span>
               <div className="relative z-20 mt-6 flex flex-row items-center">
                 <div className="flex flex-col gap-1">
-                  <span className="text-xl leading-[1.6] font-bold text-white">
+                  <span className="text-xl leading-[1.6] font-bold text-main-text-light dark:text-main-text-dark">
                     {item.name}
                   </span>
-                  <span className="text-sm leading-[1.6] font-bold text-white">
+                  <span className="text-sm leading-[1.6] font-bold text-main-text-light dark:text-main-text-dark">
                     {item.title}
                   </span>
                 </div>

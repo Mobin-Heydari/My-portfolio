@@ -44,7 +44,7 @@ const clients = () => {
           My goal is your
           <span className="text-bold bg-clip-text bg-no-repeat text-transparent bg-gradient-to-r py-4 from-green-500 via-teal-700 to-green-900 [text-shadow:0_0_rgba(0,0,0,0.1)]"> success</span>
         </h3>
-        <p className='text-wrap text-white font-light text-2xl'>
+        <p className='text-wrap font-light text-2xl'>
           Don’t just take my word for it here’s what my clients have to say about working with me. Their satisfaction drives my passion for development.
         </p>
         <div className="flex flex-col items-center mt-20 mb-32">
